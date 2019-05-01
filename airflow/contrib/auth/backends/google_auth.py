@@ -176,7 +176,7 @@ class GoogleAuthBackend(object):
                 email=email,
                 is_superuser=False)
 
-        session.merge(user)
+        user = session.merge(user)
         session.commit()
         login_user(GoogleUser(user))
         session.commit()

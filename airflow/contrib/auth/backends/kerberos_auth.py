@@ -148,7 +148,7 @@ def login(self, request, session=None):
                 username=username,
                 is_superuser=False)
 
-        session.merge(user)
+        user = session.merge(user)
         session.commit()
         flask_login.login_user(KerberosUser(user))
         session.commit()
